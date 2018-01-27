@@ -1,0 +1,14 @@
+<p>All coins</p>
+
+<table>
+  <tr></tr>
+  <% @coins.each do |c| %>
+    <tr>
+      <td><%= c.symbol %></td>
+      <td><%= c.url %></td>
+      <td><%= c.symbol %></td>
+      <td><%= c.imageurl %></td>
+      <td><img src="<%= c.imageurl %>" alt="profile_img" width="30px"></td>
+    </tr>
+  <% end %>
+</ul>
