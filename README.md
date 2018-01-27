@@ -8,7 +8,7 @@ git clone https://github.com/Khristinasar/Lotta-Coin.git
 
 git pull origin master
 
-git checkout -b <your name of the branch>
+git checkout -b 'your name of the branch'
 
 bundle install
 
