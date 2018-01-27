@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Note for team members.
 
-Things you may want to cover:
+To start working on the project:  
 
-* Ruby version
+git clone https://github.com/Khristinasar/Lotta-Coin.git
 
-* System dependencies
+git pull origin master
 
-* Configuration
+git checkout -b <your name of the branch>
 
-* Database creation
+bundle install
 
-* Database initialization
+rake db:create
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+rake db:migrate
