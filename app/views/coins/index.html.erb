@@ -1,14 +1,23 @@
 <p>All coins</p>
 
-<table>
-  <tr></tr>
-  <% @coins.each do |c| %>
+<table class="table table-striped table-dark">
+  <thead>
     <tr>
-      <td><%= c.symbol %></td>
-      <td><%= c.url %></td>
-      <td><%= c.symbol %></td>
-      <td><%= c.imageurl %></td>
-      <td><img src="<%= c.imageurl %>" alt="profile_img" width="30px"></td>
+      <th scope="col">Name</th>
+      <th scope="col">Image</th>
+      <th scope="col">URL</th>
+      <th scope="col">Total Coin supply</th>
     </tr>
-  <% end %>
-</ul>
+  </thead>
+  <tbody>
+    <% @coins.each do |c| %>
+      <tr>
+        <td><%= c.fullname %></td>
+        <td><img src="<%= c.imageurl %>" alt="profile_img" width="150px"></td>
+        <!-- <td><%#= c.imageurl %></td> -->
+        <td><%= c.url %></td>
+        <td><%= c.totalcoinsupply %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

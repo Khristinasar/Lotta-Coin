@@ -1,6 +1,6 @@
 # README
 
-<h1> Note For Team Members </h1>
+<h3> Note For Team Members </h3>
 
 To start working on the project:  
 
