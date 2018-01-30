@@ -10,13 +10,6 @@
     </tr>
   </thead>
   <tbody>
-    <% @coins.each do |c| %>
-      <tr>
-        <td><img src="<%= c.imageurl %>" alt="profile_img" width="30px"></td>
-        <td><%= c.fullname %></td>
-        <td><%= c.url %></td>
-        <td><%= c.totalcoinsupply %></td>
-      </tr>
-    <% end %>
+<p> Here are the prices for Bitcoin <%=@coins%> </p>
   </tbody>
 </table>
