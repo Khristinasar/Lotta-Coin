@@ -9,7 +9,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'bcrypt'
 gem 'pg'
-
+gem 'twilio-ruby'
 gem 'httparty'
 gem 'json'
 gem 'rest-client'
