@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'coins_users/index'
+
   root 'welcome#index'
 
   get '/signup' => 'users#new'
@@ -6,9 +8,10 @@ Rails.application.routes.draw do
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  get '/logout' => 'sessions#destroy'
+  delete '/logout' => 'sessions#destroy'
   post '/users' => 'users#create'
 
   resources :coins
+  resources :user_coins
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
