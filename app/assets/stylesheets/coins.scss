@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.price{
+  color:green;
+
+};
+.lowprice{color:red;};
+
 .footer {
   position: relative;
   text-align: center;
@@ -17,3 +23,4 @@
 .logo {
   width: 30px;
 }
+
