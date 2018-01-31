@@ -6,6 +6,7 @@
      <th scope="col">Name</th>
      <th scope="col">Open</th>
      <th scope="col">High</th>
+     <th scope="col">Low</th>
      <th scope="col">Change %<i class="fa fa-arrow-circle-o-up"></i><i class="fa fa-arrow-circle-o-down"></i></th>
      <th scope="col">Price </th>
    </tr>
@@ -18,6 +19,7 @@
          <td><%= @coins.find_by(name: k).fullname %></td>
          <td><%= v["USD"]["OPENDAY"] %></td>
          <td><%= v["USD"]["HIGHDAY"] %></td>
+         <td><%= v["USD"]["LOWDAY"] %></td>
          <% if v["USD"]["CHANGEPCTDAY"].to_f < 0 %>
          <td class="price"><%=v["USD"]["CHANGEPCTDAY"] %></td>
          <% else %>
@@ -33,6 +35,7 @@
      <div class= "hidden" id="user_coin"><%= user_coin.to_s %></div>
 </tbody>
 </table>
+
 <script type="text/javascript">
 
 $('.price').each(function() {
@@ -40,10 +43,7 @@ $('.price').each(function() {
         $(this).addClass('lowprice');
     }
 });
-// $.each()(user_coin, function( key, value ) {
-//   document.title( key + ": " + value );
-// });
-console.log(user_coin.innerHTML)
+  
 (function titleScroller(text) {
     document.title = text;
     setTimeout(function () {
@@ -52,11 +52,3 @@ console.log(user_coin.innerHTML)
 }(user_coin.innerHTML));
 </script>
 
-<!-- <script>
-$(document).ready(function() {
-$("#test1").postfixString('*', 50);
-$("#test2").prefixString('*', 50);
-$("#test3").prefixString('0', 2);
-$(".price").prefixString('0', 2);
-});
-</script> -->

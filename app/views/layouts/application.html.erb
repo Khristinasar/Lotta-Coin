@@ -6,15 +6,20 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Dhurjati|Inconsolata:700|Open+Sans:400,600,700|Raleway" rel="stylesheet">
   </head>
 
   <body>
+    <% unless controller_name == "welcome" %>
+       <%= render 'layouts/navigation' %>
+    <% end %>
 
-    <%= render 'layouts/navigation' %>
     <%= render 'layouts/messages' %>
 
     <div class="container">
       <%= yield %>
     </div>
+
+
   </body>
 </html>
