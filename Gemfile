@@ -9,7 +9,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'bcrypt'
 gem 'pg'
-
+gem 'awesome_print', '~> 1.8'
 gem 'httparty'
 gem 'json'
 gem 'rest-client'
