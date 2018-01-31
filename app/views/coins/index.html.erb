@@ -43,12 +43,11 @@ $('.price').each(function() {
         $(this).addClass('lowprice');
     }
 });
-  
+
 (function titleScroller(text) {
     document.title = text;
     setTimeout(function () {
         titleScroller(text.substr(1) + text.substr(0, 1));
     }, 500);
-}(user_coin.innerHTML));
+}(user_coin.innerHTML.replace(/['"]+/g, '')));
 </script>
-
