@@ -4,6 +4,7 @@ class UserCoinsController < ApplicationController
   def index
     @coins = Coin.all
     @user_coins = UserCoin.all
+    # @user_coins = UserCoin.where({ user_id: params[:id] })
     @q_string = []
     @user_coins.each do |n|
     @q_string << @coins.find_by(id: n.coin_id).name
@@ -88,7 +89,7 @@ class UserCoinsController < ApplicationController
 
   private
     def set_user_coin
-      @user_coin = UserCoin.find(params[:id])
+      @user_coin = UserCoin.find_by(coin_id: (params[:id]))
     end
 
     def user_coins_params

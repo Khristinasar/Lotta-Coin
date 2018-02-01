@@ -6,6 +6,7 @@
 
     <ul class="nav navbar-nav navbar-right">
       <% if logged_in? %>
+        <li><%= link_to "Your Coins", user_coins_path %></li>
         <li class="dropdown">
          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
            <%= current_user.name %>

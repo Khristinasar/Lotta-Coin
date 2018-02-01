@@ -28,10 +28,10 @@
         <% end %>
         <td><%= v["USD"]["PRICE"] %></td>
         <td><%= link_to 'Add to my Coins', user_coins_path(
-                                         user_id: current_user,
-                                         coin_id: @coins.find_by(name: k).id),
-                                         class: 'btn btn-xs btn-success',
-                                         method: :post %></td>
+                                           user_id: current_user,
+                                           coin_id: @coins.find_by(name: k).id),
+                                           class: 'btn btn-xs btn-success',
+                                           method: :post %></td>
       </tr>
       <% user_coins << k %>
       <% user_coins << v["USD"]["PRICE"] %>
