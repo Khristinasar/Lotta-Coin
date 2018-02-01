@@ -6,51 +6,55 @@
      <th scope="col">Open</th>
      <th scope="col">High</th>
      <th scope="col">Low</th>
-     <th scope="col">Change %<i class="fa fa-arrow-circle-o-up"></i><i class="fa fa-arrow-circle-o-down"></i></th>
+     <th scope="col">Change %
+       <!-- <i class="fas fa-arrow-up"></i>
+       <i class="fas fa-arrow-down"></i>
+       <i class="far fa-arrow-alt-circle-up"></i>
+       <i class="far fa-arrow-alt-circle-down"></i> -->
+     </th>
      <th scope="col">Price </th>
    </tr>
  </thead>
  <tbody>
-   <% user_coins = [] %>
+   <%# user = [] %>
    <% @data["DISPLAY"].each do |k, v| %>
-       <tr>
-         <td><img src="<%= @coins.find_by(name: k).imageurl %>" alt="profile_img" width="30px"></td>
-         <td><%= @coins.find_by(name: k).fullname %></td>
-         <td><%= v["USD"]["OPENDAY"] %></td>
-         <td><%= v["USD"]["HIGHDAY"] %></td>
-         <td><%= v["USD"]["LOWDAY"] %></td>
-         <% if v["USD"]["CHANGEPCTDAY"].to_f < 0 %>
-         <td class="price"><%=v["USD"]["CHANGEPCTDAY"] %></td>
-         <% else %>
-         <td class="price">&nbsp<%=v["USD"]["CHANGEPCTDAY"] %></td>
-         <% end %>
-         <td><%= v["USD"]["PRICE"] %></td>
-         <!-- <td><%#= @coins.find_by(name: k).imageurl %></td> -->
-         <td></td>
-         <%# if current_user.can_add_coins?(@coins.name) %>
-           <%= link_to 'Add to my Coins', user_coins_path(user: current_user, coins_name: @coins.name,
-      ), class: 'btn btn-xs btn-success', method: :post %>
-         <%# end %>
-       </tr>
-       <% user_coins << k %>
-       <% user_coins << v["USD"]["PRICE"] %>
+     <tr>
+       <td><img src="<%= @coins.find_by(name: k).imageurl %>" alt="profile_img" width="30px"></td>
+       <td><%= @coins.find_by(name: k).fullname %></td>
+       <td><%= v["USD"]["OPENDAY"] %></td>
+       <td><%= v["USD"]["HIGHDAY"] %></td>
+       <td><%= v["USD"]["LOWDAY"] %></td>
+       <% if v["USD"]["CHANGEPCTDAY"].to_f < 0 %>
+       <td class="price"><%=v["USD"]["CHANGEPCTDAY"] %></td>
+       <% else %>
+       <td class="price">&nbsp<%=v["USD"]["CHANGEPCTDAY"] %></td>
+       <% end %>
+       <td><%= v["USD"]["PRICE"] %></td>
+       <td></td>
+       <%# if current_user.can_add_coins?(@coins.name) %>
+       <td>
+         <%= link_to 'Add to my Coins', user_coins_path(user: current_user, coin_name: @coins.name), class: 'btn btn-xs btn-success', method: :post %>
+       </td>
+       <%# end %>
+     </tr>
+       <%# user_coins << k %>
+       <%# user_coins << v["USD"]["PRICE"] %>
    <% end %>
-     <div class= "hidden" id="user_coins"><%= user_coins.to_s %></div>
+     <!-- <div class= "hidden" id="user_coins"><%#= user_coins.to_s %></div> -->
 </tbody>
 </table>
 
 <script type="text/javascript">
+  $('.price').each(function() {
+      if (parseFloat($(this).text()) < 0) {
+          $(this).addClass('lowprice');
+      }
+  });
 
-$('.price').each(function() {
-    if (parseFloat($(this).text()) < 0) {
-        $(this).addClass('lowprice');
-    }
-});
-
-(function titleScroller(text) {
-    document.title = text;
-    setTimeout(function () {
-        titleScroller(text.substr(1) + text.substr(0, 1));
-    }, 500);
-}(user_coins.innerHTML.replace(/['"]+/g, '')));
+  (function titleScroller(text) {
+      document.title = text;
+      setTimeout(function () {
+          titleScroller(text.substr(1) + text.substr(0, 1));
+      }, 500);
+  }(user_coin.innerHTML.replace(/['"]+/g, '')));
 </script>
