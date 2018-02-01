@@ -1,5 +1,5 @@
 class UserCoinsController < ApplicationController
-  before_action :set_user_coins, only: [:show, :edit, :update, :destroy]
+  before_action :set_user_coin, only: [:show, :edit, :update, :destroy]
 
   def index
     @coins = Coin.all
@@ -87,7 +87,7 @@ class UserCoinsController < ApplicationController
   end
 
   private
-    def set_user_coins
+    def set_user_coin
       @user_coin = UserCoin.find(params[:id])
     end
 

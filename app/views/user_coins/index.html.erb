@@ -27,17 +27,11 @@
           <td class="price">&nbsp<%=v["USD"]["CHANGEPCTDAY"] %></td>
         <% end %>
         <td><%= v["USD"]["PRICE"] %></td>
-        <td><%#= link_to 'Delete', user_coins_path(
-                                   user_id: current_user,
-                                   coin_id: @coins.find_by(name: k).id),
-                                   :method => :delete,
-                                   :data => { :confirm => 'Are you sure?'},
-                                   :class => 'btn btn-xs btn-danger' %></td>
         <%# if @user.id == current_user.id %>
-          <td><%= link_to 'Untrack Coin', user_coin_path(@coins.find_by(name: k).id),
-                                           method: :delete,
-                                           data: { confirm: 'Are you sure?' },
-                                           :class => 'btn btn-xs btn-danger' %></td>
+        <td><%= link_to 'Untrack Coin', user_coin_path(@coins.find_by(name: k).id),
+                                         method: :delete,
+                                         data: { confirm: 'Are you sure?' },
+                                         :class => 'btn btn-xs btn-danger' %></td>
         <%# end %>
       </tr>
       <% user_coins << k %>
@@ -45,6 +39,14 @@
     <% end %>
     <div class= "hidden" id="user_coins"><%= user_coins.to_s %></div>
   </tbody>
+</table>
+
+<table>
+  <% @user_coins.each do |user_coin| %>
+    <tr>
+      <td><%= user_coin.name %></td>
+    </tr>
+  <% end %>
 </table>
 
 <script type="text/javascript">
