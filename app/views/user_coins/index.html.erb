@@ -34,7 +34,7 @@
        <% c_arr << k %>
        <% c_arr << v["USD"]["PRICE"] %>
    <% end %>
-     <div class= "hidden" id="user_coins"><%= c_arr.to_s %></div>
+     <div class= "hidden" id="user_coins"><%= c_arr %></div>
 </tbody>
 </table>
 
@@ -51,5 +51,5 @@ $('.price').each(function() {
     setTimeout(function () {
         titleScroller(text.substr(1) + text.substr(0, 1));
     }, 500);
-}(user_coins.innerHTML.replace(/['"]+/g, '')));
+}(user_coins.innerHTML.replace(/[['"\]]+/g, '')));
 </script>
