@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :coins, through: :user_coins
+  has_secure_password
   before_save { self.email = email.downcase }
   validates :name, presence: true,
             uniqueness: { case_sensitive: false },
@@ -7,5 +9,4 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 80 },
             uniqueness: { case_sensitive: false },
             format: { with: VALID_EMAIL_REGEX }
-  has_secure_password
 end
