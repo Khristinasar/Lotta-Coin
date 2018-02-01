@@ -18,27 +18,27 @@
  <tbody>
    <%# user = [] %>
    <% @data["DISPLAY"].each do |k, v| %>
-     <tr>
-       <td><img src="<%= @coins.find_by(name: k).imageurl %>" alt="profile_img" width="30px"></td>
-       <td><%= @coins.find_by(name: k).fullname %></td>
-       <td><%= v["USD"]["OPENDAY"] %></td>
-       <td><%= v["USD"]["HIGHDAY"] %></td>
-       <td><%= v["USD"]["LOWDAY"] %></td>
-       <% if v["USD"]["CHANGEPCTDAY"].to_f < 0 %>
-       <td class="price"><%=v["USD"]["CHANGEPCTDAY"] %></td>
-       <% else %>
-       <td class="price">&nbsp<%=v["USD"]["CHANGEPCTDAY"] %></td>
-       <% end %>
-       <td><%= v["USD"]["PRICE"] %></td>
-       <td></td>
-       <%# if current_user.can_add_coins?(@coins.name) %>
-       <td>
-         <%= link_to 'Add to my Coins', user_coins_path(user: current_user, coin_name: @coins.name), class: 'btn btn-xs btn-success', method: :post %>
-       </td>
-       <%# end %>
-     </tr>
-       <%# user_coins << k %>
-       <%# user_coins << v["USD"]["PRICE"] %>
+       <tr>
+         <td><img src="<%= @coins.find_by(name: k).imageurl %>" alt="profile_img" width="30px"></td>
+         <td><%= @coins.find_by(name: k).fullname %></td>
+         <td><%= v["USD"]["OPENDAY"] %></td>
+         <td><%= v["USD"]["HIGHDAY"] %></td>
+         <td><%= v["USD"]["LOWDAY"] %></td>
+         <% if v["USD"]["CHANGEPCTDAY"].to_f < 0 %>
+         <td class="price"><%=v["USD"]["CHANGEPCTDAY"] %></td>
+         <% else %>
+         <td class="price">&nbsp<%=v["USD"]["CHANGEPCTDAY"] %></td>
+         <% end %>
+         <td><%= v["USD"]["PRICE"] %></td>
+         <!-- <td><%#= @coins.find_by(name: k).imageurl %></td> -->
+         <td><%= link_to 'Add to my Coins', user_coins_path(user_id: current_user, coin_id: @coins.find_by(name: k).id,
+    ), class: 'btn btn-xs btn-success', method: :post %></td>
+         <%# if current_user.can_add_coins?(@coins.name) %>
+
+         <%# end %>
+       </tr>
+       <% user_coins << k %>
+       <% user_coins << v["USD"]["PRICE"] %>
    <% end %>
      <!-- <div class= "hidden" id="user_coins"><%#= user_coins.to_s %></div> -->
 </tbody>

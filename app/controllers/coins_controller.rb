@@ -6,8 +6,4 @@ class CoinsController < ApplicationController
     response = HTTParty.get(url)
     @data = JSON.parse(response.body)
   end
-
-  def show
-    @coin = Coin.find(params[:id])
-  end
 end
