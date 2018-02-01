@@ -3,6 +3,12 @@ class UsersController < ApplicationController
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
+    @coins = Coin.all
+    @user_coins = UserCoin.where({ user_id: params[:id] })
+    api_endpoint =  "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=#{user_coins}&tsyms=USD"
+    url = api_endpoint
+    response = HTTParty.get(url)
+    @data = JSON.parse(response.body)
   end
 
   def new

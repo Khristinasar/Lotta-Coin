@@ -8,14 +8,18 @@
      <th scope="col">Low</th>
      <th scope="col">Change %<i class="fa fa-arrow-circle-o-up"></i><i class="fa fa-arrow-circle-o-down"></i></th>
      <th scope="col">Price </th>
+     <th scope="col">Tracking</th>
    </tr>
  </thead>
  <tbody>
-   <% user_coins = [] %>
+
+   <% c_arr = [] %>
+   <% c_id = "" %>
    <% @data["DISPLAY"].each do |k, v| %>
        <tr>
          <td><img src="<%= @coins.find_by(name: k).imageurl %>" alt="profile_img" width="30px"></td>
-         <td><%= @coins.find_by(name: k).fullname %></td>
+         <td><%= @coins.find_by(name: k).fullname %>
+           <%c_id << @coins.find_by(name: k).id %></td>
          <td><%= v["USD"]["OPENDAY"] %></td>
          <td><%= v["USD"]["HIGHDAY"] %></td>
          <td><%= v["USD"]["LOWDAY"] %></td>
@@ -25,17 +29,12 @@
          <td class="price">&nbsp<%=v["USD"]["CHANGEPCTDAY"] %></td>
          <% end %>
          <td><%= v["USD"]["PRICE"] %></td>
-         <!-- <td><%#= @coins.find_by(name: k).imageurl %></td> -->
-         <td><%= link_to 'Add to my Coins', user_coins_path(user_id: current_user, coin_id: @coins.find_by(name: k).id,
-    ), class: 'btn btn-xs btn-success', method: :post %></td>
-         <%# if current_user.can_add_coins?(@coins.name) %>
-
-         <%# end %>
+         <td><input id="checkBox" type="checkbox"></td>
        </tr>
-       <% user_coins << k %>
-       <% user_coins << v["USD"]["PRICE"] %>
+       <% c_arr << k %>
+       <% c_arr << v["USD"]["PRICE"] %>
    <% end %>
-     <div class= "hidden" id="user_coins"><%= user_coins.to_s %></div>
+     <div class= "hidden" id="user_coins"><%= c_arr.to_s %></div>
 </tbody>
 </table>
 
