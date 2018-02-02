@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180201033003) do
+ActiveRecord::Schema.define(version: 20180202200047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,9 @@ ActiveRecord::Schema.define(version: 20180201033003) do
   create_table "user_coins", force: :cascade do |t|
     t.bigint "coin_id", null: false
     t.bigint "user_id", null: false
+    t.decimal "amount_up"
+    t.decimal "amount_down"
+    t.boolean "is_receiving_alert", default: false
     t.index ["coin_id", "user_id"], name: "index_user_coins_on_coin_id_and_user_id"
   end
 

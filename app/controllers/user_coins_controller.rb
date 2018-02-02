@@ -3,7 +3,7 @@ class UserCoinsController < ApplicationController
 
   def index
     @coins = Coin.all
-    @user_coins = UserCoin.all
+    @user_coins = current_user.coins.all
     # @user_coins = UserCoin.where({ user_id: params[:id] })
     @q_string = []
     @user_coins.each do |n|
