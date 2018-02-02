@@ -32,6 +32,7 @@
                                            coin_id: @coins.find_by(name: k).id),
                                            class: 'btn btn-xs btn-success',
                                            method: :post %></td>
+
       </tr>
       <% user_coins << k %>
       <% user_coins << v["USD"]["PRICE"] %>
@@ -50,6 +51,6 @@
       document.title = text;
       setTimeout(function () {
           titleScroller(text.substr(1) + text.substr(0, 1));
-      }, 500);
-  }(user_coins.innerHTML.replace(/['"]+/g, '')));
+      }, 1000);
+  }(user_coins.innerHTML.replace(/['"$]+/g, '').replace(/[\[,\]]+/g, ' ')));
 </script>

@@ -20,5 +20,5 @@ class CoinsController < ApplicationController
      url = @api_endpoint
      response = HTTParty.get(url)
      @data = JSON.parse(response.body)
-   end
+  end
 end

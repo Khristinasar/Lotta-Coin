@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:success] = "Welcome to LottaCoin, #{@user.name}!"
-      redirect_to current_user
+      redirect_to user_coins_path
     else
       render 'new'
     end
