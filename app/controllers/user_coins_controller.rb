@@ -3,7 +3,7 @@ class UserCoinsController < ApplicationController
 
   def index
     @coins = Coin.all
-    @user_coins = UserCoin.all
+    @user_coins = current_user.coins.all
     # @user_coins = UserCoin.where({ user_id: params[:id] })
     @q_string = []
     @user_coins.each do |n|
@@ -24,6 +24,7 @@ class UserCoinsController < ApplicationController
     response = HTTParty.get(url)
     @data = JSON.parse(response.body)
   end
+
 
   def show
   end
@@ -59,7 +60,8 @@ class UserCoinsController < ApplicationController
         format.html { redirect_to user_coins_path }
         format.json { render :show, status: :created, location: @user_coin }
       else
-        format.html { render :new }
+        flash[:danger] = "Please log in to track your coins"
+        format.html { redirect_to coins_path }
         format.json { render json: @user_coin.errors, status: :unprocessable_entity }
       end
     end

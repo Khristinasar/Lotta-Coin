@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :user_coins
   has_many :coins, through: :user_coins
   has_secure_password
   before_save { self.email = email.downcase }
