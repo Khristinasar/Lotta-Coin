@@ -32,9 +32,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      PriceAlertMailer.send_alert_email(@user).deliver
-      flash[:success] = 'EMAIL SENTY!!!!!!!!'
-#      flash[:success] = "Your account was updated successfully"
+      flash[:success] = "Your account was updated successfully"
       redirect_to current_user
     else
       render 'edit'

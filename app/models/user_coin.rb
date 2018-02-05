@@ -8,7 +8,12 @@ class UserCoin < ApplicationRecord
   end
 
   def alert_user
-    p "Alerting User"
+    if user_coin.text_pref == true && user.phone_number == !nil
+      #send text message
+    else
+      #send email
+      PriceAlertMailer.send_alert_email(@user).deliver
+
   end
 
 end

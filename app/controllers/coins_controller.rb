@@ -6,9 +6,9 @@ class CoinsController < ApplicationController
   end
 
   def search
-    @coins = Coin.where("symbol iLIKE ? OR coinname iLIKE ?", "%#{params[:coin_term]}%","%#{params[:coin_term]}%")
-    response = CoinService.new.fetch(@coins)
-    @data = JSON.parse(response.body)
+     @coins = Coin.where("symbol iLIKE ? OR coinname iLIKE ?", "%#{params[:coin_term]}%","%#{params[:coin_term]}%")
+     response = CoinService.new.fetch(@coins)
+     @data = JSON.parse(response.body)
     render :index
   end
 end
