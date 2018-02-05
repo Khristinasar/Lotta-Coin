@@ -7,6 +7,8 @@
     <form class="form-signin">
       <%= f.label :name %>
       <%= f.text_field :name, id: "inputName", class: "form-control", autofocus: true %>
+      <%= f.label :phone_number %>
+      <%= f.text_field :phone_number, id:"inputPhonenumber" , class: "form-control" ,placeholder: "xxx-xxx-xxxx" %>
       <%= f.label :email %>
       <%= f.email_field :email, id: "inputEmail", class: "form-control" %>
       <%= f.label :password %>
