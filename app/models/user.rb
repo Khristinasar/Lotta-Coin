@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  attr_accessor :email, :name, :phone
   has_many :user_coins
   has_many :coins, through: :user_coins
   has_secure_password
@@ -10,4 +11,5 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 80 },
             uniqueness: { case_sensitive: false },
             format: { with: VALID_EMAIL_REGEX }
+
 end
