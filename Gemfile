@@ -4,12 +4,13 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+
 gem 'twilio-ruby'
 gem 'dotenv-rails'
 gem "font-awesome-rails"
 gem 'httparty'
 gem 'jquery-rails'
-gem 'bootstrap-sass'
+# gem 'bootstrap-sass'
 gem 'bcrypt'
 gem 'pg'
 gem 'httparty'

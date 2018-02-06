@@ -1,14 +1,20 @@
-<%= form_for(:session, :html => {class: "form-horizontal", role: "form"}, url: login_path) do |f| %>  <!-- without class: "form-horizontal" form won't work, we have to add it this way ; |f| can be anything -->
-  <div class="card card-container">
-    <p class='title'>Log In</p>
-    <form class="form-signin">
-      <%= f.label :email %>
-      <%= f.text_field :email, id: "inputEmail", class: "form-control", autofocus: true %>
-      <%= f.label :password %>
-      <%= f.password_field :password, id: "inputPassword", class: "form-control", autocomplete: 'off' %>
-      <%= f.submit 'Log in', class: "btn btn-lg btn-primary btn-block btn-signin" %>
+<div class="card">
+  <%= form_for(:session, :html => {class: "form-horizontal", role: "form"}, url: login_path) do |f| %>  <!-- without class: "form-horizontal" form won't work, we have to add it this way ; |f| can be anything -->
+    <p class='form-title'>Log In</p>
+    <form class="form-row">
+      <div class="col">
+        <%= f.label :email %>
+        <%= f.text_field :email, class: "form-control", autofocus: true %>
+      </div>
+      <div class="col">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control", autocomplete: 'off' %>
+      </div>
+      <div class="col">
+        <%= f.submit 'Log in', class: "btn btn-lg btn-primary btn-block btn-signin" %>
+      </div>
       <p class="signup-link f-password"><%= link_to 'Forgot your password?' %></p>
       <p class="signup-link"><%= link_to 'Sign up', signup_path %></p>
     </form>
-  </div>
-<% end %>
+  <% end %>
+</div>
