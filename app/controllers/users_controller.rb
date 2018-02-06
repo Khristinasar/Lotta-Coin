@@ -19,8 +19,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      flash[:success] = "Welcome to LottaCoin, #{@user.name}!"
-      redirect_to user_coins_path
+      flash[:success] = "Welcome to Lotta Coin, #{@user.name}!"
+      redirect_to coins_path
     else
       render 'new'
     end

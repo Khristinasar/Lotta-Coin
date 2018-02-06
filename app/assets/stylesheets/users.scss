@@ -1,3 +1,49 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.card {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.form-horizontal {
+  // font-family: 'Dhurjati', sans-serif;
+  // font-family: 'Oswald', sans-serif;
+  padding-top: 20px;
+  box-shadow: 0 0 25px #fdf1d2;
+  background-color: #343a40;
+  color: #fff;
+}
+
+.form-title {
+  font-size: 25px;
+  text-align: center;
+}
+
+.form-control {
+  height: 46px;
+}
+
+.form-horizontal > p {
+  padding-left: 15px !important;
+}
+
+.col {
+  padding-bottom: 15px;
+  font-size: 18px;
+}
+
+.btn-primary {
+  background-color: #5b85c6 !important;
+  border-color: #5b85c6 !important;
+}
+
+.signup-link > a {
+  color: #5b85c6 !important;
+  font-size: 16px;
+}
+
+.signup-link:hover {
+  color: #fff;
+}

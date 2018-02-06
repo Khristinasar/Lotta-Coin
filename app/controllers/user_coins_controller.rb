@@ -38,7 +38,7 @@ class UserCoinsController < ApplicationController
        format.html { redirect_to user_coins_path }
        format.json { render :show, status: :created, location: @user_coin }
      else
-       format.html { render :new }
+       format.html { redirect_to coins_path }
        flash[:danger] = "Please log in to track your coins"
        format.html { redirect_to coins_path }
        format.json { render json: @user_coin.errors, status: :unprocessable_entity }

@@ -1,32 +1,32 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <%= link_to "Lotta ₵oin", coins_path, class: "navbar-brand", id: "logo" %>
-    </div>
-
-    <ul class="nav navbar-nav navbar-right">
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <%= link_to "Lotta ₵oin", coins_path, class: "navbar-brand", id: "logo" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <% if logged_in? %>
-        <li><%= link_to "Your Coins", user_coins_path %></li>
-        <li class="dropdown">
-         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-           <%= current_user.name %>
-           <span class="caret"></span>
-         </a>
-         <ul class="dropdown-menu">
-           <li class="dropdown-header header-nav-current-user">
-             Signed in as <%= current_user.name %>
-           </li>
-           <li role="separator" class="divider"></li>
-           <li><%= link_to "View your profile", user_coins_path %></li>
-           <li><%= link_to "Edit your profile", edit_user_path(current_user) %></li>
-           <li role="separator" class="divider"></li>
-           <li><%= link_to 'Log out', logout_path, method: :delete %></li>
-         </ul>
-        </li>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= current_user.name %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "View your coins", user_coins_path, class: 'dropdown-item' %>
+              <%= link_to "Edit your profile", edit_user_path(current_user), class: 'dropdown-item' %>
+              <div class="dropdown-divider"></div>
+              <%= link_to 'Log out', logout_path, method: :delete, class: 'dropdown-item' %>
+            </div>
+          </li>
+        </ul>
       <% else %>
-        <li><%= link_to 'Log in', login_path %></li>
-        <li><%= link_to 'Sign up', signup_path %></li>
-      <% end %>
-    </ul>
+        <ul class="navbar-nav my-2 my-lg-0">
+          <li class="nav-item active">
+            <%= link_to 'Log in', login_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to 'Sign up', signup_path, class: 'nav-link' %>
+          </li>
+        </ul>
+    <% end %>
   </div>
 </nav>
