@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  attr_accessor :email, :name, :phone
   has_many :user_coins
   has_many :coins, through: :user_coins
   has_secure_password

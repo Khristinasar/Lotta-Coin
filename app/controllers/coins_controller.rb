@@ -1,8 +1,8 @@
 class CoinsController < ApplicationController
   def index
-     @coins = Coin.all
-     response = CoinService.new.fetch(@coins)
-     @data = JSON.parse(response.body)
+    @coins = Coin.all
+    response = CoinService.new.fetch(@coins)
+    @data = JSON.parse(response.body)
   end
 
   def search

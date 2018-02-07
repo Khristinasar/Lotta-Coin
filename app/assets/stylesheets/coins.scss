@@ -14,6 +14,15 @@ body {
    .search-form {
      width: 90% !important;
    }
+   .alert {
+     width: 83% !important;
+   }
+   .dropdown-menu {
+     left: -55px !important;
+   }
+   .table td, .table th {
+    padding: 8px !important;
+    }
  }
 
 // Large Screens
@@ -72,8 +81,8 @@ input#search-bar {
 
 .alert {
   width: 39%;
-  padding-bottom: 15px;
   margin: 0 auto;
+  margin-bottom: 33px !important;
 }
 
 .navbar {
@@ -116,6 +125,24 @@ input#search-bar {
 
 table {
   box-shadow: 0 0 40px #fdf1d2;
+}
+
+.btn-secondary {
+  background-color: #3762a8 !important;
+  border-color: #3762a8 !important;
+}
+
+.fa-arrow-up, .fa-arrow-down {
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.fa-arrow-up {
+  color: green;
+}
+
+.fa-arrow-down {
+  color: red;
 }
 
 .price {

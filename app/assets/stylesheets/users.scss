@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.errors {
+  color: #fff;
+}
+
+
 .card {
   max-width: 450px;
   margin: 0 auto;
@@ -43,6 +48,7 @@
   color: #5b85c6 !important;
   font-size: 16px;
 }
+
 
 .signup-link:hover {
   color: #fff;

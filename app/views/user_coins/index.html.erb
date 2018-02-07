@@ -33,7 +33,7 @@
             <% end %>
             <td><%= v["USD"]["PRICE"] %></td>
             <%# if @user.id == current_user.id %>
-            <td class="no-mobile"><%= link_to 'Untrack Coin', user_coin_path(@coins.find_by(name: k).id),
+            <td class="no-mobile"><%= link_to 'Untrack', user_coin_path(@coins.find_by(name: k).id),
                                              method: :delete,
                                              data: { confirm: 'Are you sure?' },
                                              :class => 'btn btn-xs btn-danger' %></td>
@@ -41,7 +41,30 @@
                                              method: :delete,
                                              data: { confirm: 'Are you sure?' },
                                              :class => 'btn btn-xs btn-danger' %></td>
-            <%# end %>
+             <td class="no-mobile">
+               <div class="dropdown show">
+                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Alerts
+                 </a>
+                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                   <a class="dropdown-item" href="#">15% <i class="fas fa-arrow-up"></i></a>
+                   <a class="dropdown-item" href="#">25% <i class="fas fa-arrow-up"></i></a>
+                   <a class="dropdown-item" href="#">15% <i class="fas fa-arrow-down"></i></a>
+                   <a class="dropdown-item" href="#">25% <i class="fas fa-arrow-down"></i></a>
+                 </div>
+               </div>
+             </td>
+             <td class='large'>
+               <div class="dropdown show">
+                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                   <a class="dropdown-item" href="#">15% <i class="fas fa-arrow-up"></i></a>
+                   <a class="dropdown-item" href="#">25% <i class="fas fa-arrow-up"></i></a>
+                   <a class="dropdown-item" href="#">15% <i class="fas fa-arrow-down"></i></a>
+                   <a class="dropdown-item" href="#">25% <i class="fas fa-arrow-down"></i></a>
+                 </div>
+               </div>
+             </td>
           </tr>
           <% user_coins << k %>
           <% user_coins << v["USD"]["PRICE"] %>

@@ -1,5 +1,4 @@
 class UserCoinsController < ApplicationController
-
   def index
     @coins = Coin.all
     @user_coins = current_user.coins.all
